@@ -19,7 +19,8 @@ public class School {
         this.gradePoints=gradePoints;
     }
     public void display(){
-        System.out.println(this.studentName+" has a "+this.gradePoints+" GPA");
+        String s=this.studentName+" has a "+this.gradePoints+" GPA";
+        l.info(s);
     }
     public void update(){
         l.info("Enter the Number of Subject :");
