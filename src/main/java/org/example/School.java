@@ -67,40 +67,10 @@ public class School {
         double gradePoints;
         l.info("Enter the Name :");
         name=sc.nextLine();
-        l.info("Enter the Number of Subject :");
-        int n=sc.nextInt();
-        Double gpa=0.0;
+        s.update();
 
-        String[] a=new String[n];
-        sc.nextLine();
-
-        l.info("A/B/C/D/E/F");
-        for (int i=0;i<n;i++){
-            l.log(Level.INFO,()->"Enter the Grade for subject :");
-            a[i]=sc.nextLine();
-            gpa += s.gradeCal(a[i]);
-        }
-        if(gpa>23 ){
-            grade="A";
-            gradePoints=5.0;
-        } else if (gpa>20) {
-            grade="B";
-            gradePoints=4.5;
-        } else if (gpa>18) {
-            grade="C";
-            gradePoints=4.0;
-        } else if (gpa>15) {
-            grade="D";
-            gradePoints=3.5;
-        }
-        else if(gpa>10) {
-            grade="E";
-            gradePoints=3.0;
-        }
-        else {
-            grade="F";
-            gradePoints=2.5;
-        }
+        grade=s.grade;
+        gradePoints=s.gradePoints;
 
         School s1=new School(name,grade,gradePoints);
 
