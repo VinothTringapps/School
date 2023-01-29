@@ -1,7 +1,9 @@
 package org.example;
 
 
-import java.util.Scanner;
+
+import java.util.*;
+import java.util.logging.*;
 
 public class School {
 
@@ -10,7 +12,7 @@ public class School {
     double gradePoints;
 
     Scanner sc=new Scanner(System.in);
-
+    Logger l=Logger.getLogger("com.api.jar");
     School(String name,String grade,double gradePoints){
         this.studentName=name;
         this.grade=grade;
@@ -20,16 +22,16 @@ public class School {
         System.out.println(this.studentName+" has a "+this.gradePoints+" GPA");
     }
     public void update(){
-        System.out.println("Enter the Number of Subject :");
+        l.info("Enter the Number of Subject :");
         int n=sc.nextInt();
         Double gpa=0.0;
 
         String[] a=new String[n];
         sc.nextLine();
 
-        System.out.println("A/B/C/D/E/F");
+        l.info("A/B/C/D/E/F");
         for (int i=0;i<n;i++){
-            System.out.println("Enter the Grade for subject "+(i+1)+" :");
+            l.info("Enter the Grade for subject  :");
             a[i]=sc.nextLine();
             gpa +=gradeCal(a[i]);
         }
@@ -58,26 +60,26 @@ public class School {
     }
     public static void main(String[] args) {
         Scanner sc=new Scanner(System.in);
+        Logger l=Logger.getLogger("com.api.jar");
         School s=new School(null,null,0);
         String name;
         String grade;
         double gradePoints;
-        System.out.println("Enter the Name :");
+        l.info("Enter the Name :");
         name=sc.nextLine();
-        System.out.println("Enter the Number of Subject :");
+        l.info("Enter the Number of Subject :");
         int n=sc.nextInt();
         Double gpa=0.0;
 
         String[] a=new String[n];
         sc.nextLine();
 
-        System.out.println("A/B/C/D/E/F");
+        l.info("A/B/C/D/E/F");
         for (int i=0;i<n;i++){
-            System.out.println("Enter the Grade for subject "+(i+1)+" :");
+            l.log(Level.INFO,()->"Enter the Grade for subject :");
             a[i]=sc.nextLine();
             gpa += s.gradeCal(a[i]);
         }
-        System.out.println("GPA :" +gpa);
         if(gpa>23 ){
             grade="A";
             gradePoints=5.0;
@@ -104,12 +106,12 @@ public class School {
 
         while (true){
             int choice;
-            System.out.println("1.display /n 2.Update");
+            l.info("1.display /n 2.Update");
             choice=sc.nextInt();
             switch (choice) {
                 case 1 -> s1.display();
                 case 2 -> s1.update();
-                default -> System.out.println("Wrong Choice !");
+                default -> l.info("Wrong Choice !");
             }
 
         }
