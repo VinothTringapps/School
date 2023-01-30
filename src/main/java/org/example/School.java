@@ -89,17 +89,20 @@ public class School {
     }
     private Double gradeCal(String s) {
         if (s.equalsIgnoreCase("A")) {
-            return  gradePoints = 5.0;
+              gradePoints = 5.0;
         } else if (s.equalsIgnoreCase("B")) {
-            return gradePoints = 4.5;
+             gradePoints = 4.5;
         } else if (s.equalsIgnoreCase("C")) {
-            return gradePoints = 4.0;
+             gradePoints = 4.0;
         } else if (s.equalsIgnoreCase("D")) {
-            return gradePoints = 3.5;
+             gradePoints = 3.5;
         } else if (s.equalsIgnoreCase("E")) {
-            return gradePoints = 3.0;
+             gradePoints = 3.0;
         }
-        return gradePoints = 2;
+        else {
+             gradePoints = 2;
+        }
+        return gradePoints;
     }
 
 
